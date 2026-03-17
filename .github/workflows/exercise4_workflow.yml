@@ -1,6 +1,8 @@
 name: Workflow of exercise 4
 run-name: Fourth workflow
 
+permissions: {}
+
 on:
     push:
         branches: [ main ]
