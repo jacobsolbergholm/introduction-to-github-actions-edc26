@@ -24,4 +24,12 @@ jobs:
                 name: exercise sheet
                 path: exercises.pdf
                 retention-days: 1
+            
+            - run: pandoc -t beamer slides.md -o slides.pdf
+
+            - uses: actions/upload-artifact@v7
+              with:
+                name: exercise sheet
+                path: exercises.pdf
+                retention-days: 1
     
