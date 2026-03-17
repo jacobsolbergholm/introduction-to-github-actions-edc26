@@ -1,9 +1,7 @@
 name: Workflow of exercise 1
 run-name: First workflow
 
-permissions: {
-    contents: read
-}
+permissions: {}
 
 on: [push]
 
