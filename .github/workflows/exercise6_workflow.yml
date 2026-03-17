@@ -1,0 +1,27 @@
+name: Workflow of exercise 6
+run-name: Sixth workflow
+
+permissions: {}
+
+on:
+    push:
+        branches: [ main ]
+    pull_request: 
+        branches: [ main ]
+    workflow_dispatch:
+
+jobs:
+    container_job:
+        runs-on: ubuntu-latest
+        container: pandoc/extra
+        steps:
+            - uses: actions/checkout@v6
+
+            - run: pandoc --template eisvogel exercises.md -o exercises.pdf
+
+            - uses: actions/upload-artifact@v7
+              with:
+                name: exercise sheet
+                path: exercises.pdf
+                retention-days: 1
+    
