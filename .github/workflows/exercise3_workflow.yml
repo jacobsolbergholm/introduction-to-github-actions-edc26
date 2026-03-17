@@ -24,6 +24,6 @@ jobs:
             - name: Evaluate inner environment variable
               run: echo "The value of inner environment variable is ${{ env.INNER_ENV_VAR }}"
             - name: Evaluate scoped environment variable
-              run: echo "The value of scoped environment variable is ${ env.SCOPED_ENV_VAR }"
+              run: echo "The value of scoped environment variable is ${{ env.SCOPED_ENV_VAR }}"
             - name: Evaluate secret
               run: echo "The value of secret is ${{ secrets.EDC_SECRET }}"
