@@ -18,10 +18,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: echo "Two curly braces ${{ env.WORKFLOW_ENV_VAR }}"
-            - run: echo "One curly brace ${env.WORKFLOW_ENV_VAR}"
             - name: Evaluate workflow environment variable
-              run: echo "The value of env var is ${WORKFLOW_ENV_VAR}"
+              run: echo "The value of env var is ${{ env.WORKFLOW_ENV_VAR }}"
             - name: Evaluate job environment variable
-              run: echo "The value of env var is ${JOB_ENV_VAR}"
+              run: echo "The value of env var is ${{ env.JOB_ENV_VAR }}"
             - name: Evaluate secret
-              run: echo "The value of secret is ${secrets.EDC_SECRET}"
+              run: echo "The value of secret is ${{ secrets.EDC_SECRET }}"
