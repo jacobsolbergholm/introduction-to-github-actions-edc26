@@ -10,12 +10,13 @@ on:
 
 env:
     OUTER_ENV_VAR: "Outer value"
-    SCOPED_ENV_VAR: "Scoped value"
+    SCOPED_ENV_VAR: "Scoped outer value"
 
 jobs:
     ubuntu_job:
         env:
             INNER_ENV_VAR: "Inner value"
+            SCOPED_ENV_VAR: "Scoped inner value"
         runs-on: ubuntu-latest
         steps:
             - name: Evaluate outer environment variable
