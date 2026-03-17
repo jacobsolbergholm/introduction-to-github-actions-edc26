@@ -29,7 +29,7 @@ jobs:
 
             - uses: actions/upload-artifact@v7
               with:
-                name: exercise sheet
-                path: exercises.pdf
+                name: slides
+                path: slides.pdf
                 retention-days: 1
     
