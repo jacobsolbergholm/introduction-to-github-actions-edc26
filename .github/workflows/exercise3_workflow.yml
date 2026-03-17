@@ -9,18 +9,20 @@ on:
     workflow_dispatch:
 
 env:
-    WORKFLOW_ENV_VAR: "Workflow environment variable"
+    OUTER_ENV_VAR: "Outer value"
+    SCOPED_ENV_VAR: "Scoped value"
 
 jobs:
     ubuntu_job:
         env:
-            JOB_ENV_VAR: "job environment variable"
+            INNER_ENV_VAR: "Inner value"
         runs-on: ubuntu-latest
         steps:
-            - run: echo "Two curly braces ${{ env.WORKFLOW_ENV_VAR }}"
-            - name: Evaluate workflow environment variable
-              run: echo "The value of env var is ${{ env.WORKFLOW_ENV_VAR }}"
-            - name: Evaluate job environment variable
-              run: echo "The value of env var is ${{ env.JOB_ENV_VAR }}"
+            - name: Evaluate outer environment variable
+              run: echo "The value of outer environment variable is ${{ env.OUTER_ENV_VAR }}"
+            - name: Evaluate inner environment variable
+              run: echo "The value of inner environment variable is ${{ env.INNER_ENV_VAR }}"
+            - name: Evaluate scoped environment variable
+              run: echo "The value of scoped environment variable is ${{ env.SCOPED_ENV_VAR }}"
             - name: Evaluate secret
               run: echo "The value of secret is ${{ secrets.EDC_SECRET }}"
